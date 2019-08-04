@@ -72,4 +72,44 @@ f)
         </dependency>
  
   6) Restart and http://localhost:8090/swagger-ui.html 
-        
+  
+  7) Customizing :
+  a) Docket is object for customize the swagger 
+  @Bean
+    public Docket swaggerConfiguration(){
+
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .paths(PathSelectors.ant("/api/*"))
+                .apis(RequestHandlerSelectors.basePackage("com.test"))
+                .build();
+    }
+    restart and check swagger ui
+    8) Adding application metadata
+       a) AppInfo add
+       private ApiInfo getApIInfo(){
+
+        return new ApiInfo(
+                "Address Book API",
+                "Sample API for swagger tutorial",
+                "1.0",
+                "Free to use",
+                new Contact("Harinatha","","harinatha.k@gmail.com"),
+                "API Licence",
+                "",
+                Collections.emptyList());
+    }
+     public Docket swaggerConfiguration(){
+
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .paths(PathSelectors.ant("/api/*"))
+                .apis(RequestHandlerSelectors.basePackage("com.test"))
+                .build()
+                .apiInfo(getApIInfo());
+    }
+    
+    
+    
+    
+  
