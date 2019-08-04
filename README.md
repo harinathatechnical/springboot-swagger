@@ -109,7 +109,17 @@ f)
                 .apiInfo(getApIInfo());
     }
     
+   9) Add details to API 
+   @ApiOperation(value = "Find Contacts by Id",
+    notes = "Provide an ID to look up specific contact from address book",
+    response = Contact.class)
     
+    @ApiParam(value = "ID value for the contact you need to retrive" , required = true) -- parameter / method argumant
+    
+    
+    @ApiModel(description = "Details about the contact") -- model class level
+    
+    @ApiModelProperty(notes = "The Unique   id of the contact") -- for each model property 
     
     
   
