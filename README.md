@@ -54,3 +54,22 @@ d) Create AddressBookResource as a resource with APIs
 e) create Contact model 
 f)
 
+2) Add swagger dependency 
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+ 3) Enable swagger 
+        @EnableSwagger2
+ 4) Restart application and see the http://localhost:8090/v2/api-docs documentation api (swagger.json)
+ 5) Add following dependecy to interact with UI (html )
+ 
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+ 
+  6) Restart and http://localhost:8090/swagger-ui.html 
+        
