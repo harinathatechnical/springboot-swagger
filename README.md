@@ -18,7 +18,8 @@ Adding Swagger to Spring boot
 1. Create Spring boot project :-
 a) create a maven project 
 b) open the pom and add the followind details 
-<parent>
+      
+      <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.3.RELEASE</version>
@@ -42,25 +43,28 @@ b) open the pom and add the followind details
     </build>
     
  c) create Main class as 
- @SpringBootApplication
-public class SpringBootSwagger2Application {
+ 
+        @SpringBootApplication
+        public class SpringBootSwagger2Application {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootSwagger2Application.class,args);
-    }
-}
+                }
+        }
 
 d) Create AddressBookResource as a resource with APIs
 e) create Contact model 
 f)
 
 2) Add swagger dependency 
+        
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>2.9.2</version>
         </dependency>
  3) Enable swagger 
+        
         @EnableSwagger2
  4) Restart application and see the http://localhost:8090/v2/api-docs documentation api (swagger.json)
  5) Add following dependecy to interact with UI (html )
@@ -75,7 +79,8 @@ f)
   
   7) Customizing :
   a) Docket is object for customize the swagger 
-  @Bean
+        
+        @Bean
     public Docket swaggerConfiguration(){
 
         return new Docket(DocumentationType.SWAGGER_2)
@@ -85,20 +90,22 @@ f)
                 .build();
     }
     restart and check swagger ui
-    8) Adding application metadata
+    
+   8) Adding application metadata
        a) AppInfo add
-       private ApiInfo getApIInfo(){
+       
+                private ApiInfo getApIInfo(){
 
-        return new ApiInfo(
-                "Address Book API",
-                "Sample API for swagger tutorial",
-                "1.0",
-                "Free to use",
-                new Contact("Harinatha","","harinatha.k@gmail.com"),
-                "API Licence",
-                "",
-                Collections.emptyList());
-    }
+                return new ApiInfo(
+                        "Address Book API",
+                        "Sample API for swagger tutorial",
+                        "1.0",
+                        "Free to use",
+                        new Contact("Harinatha","","harinatha.k@gmail.com"),
+                        "API Licence",
+                        "",
+                        Collections.emptyList());
+            }
      public Docket swaggerConfiguration(){
 
         return new Docket(DocumentationType.SWAGGER_2)
@@ -110,7 +117,8 @@ f)
     }
     
    9) Add details to API 
-   @ApiOperation(value = "Find Contacts by Id",
+   
+                @ApiOperation(value = "Find Contacts by Id",
     notes = "Provide an ID to look up specific contact from address book",
     response = Contact.class)
     
